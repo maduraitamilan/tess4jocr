@@ -48,12 +48,10 @@ public class OcrTess4jApplication {
 		try {		
 
 			bufferedImage = ImageIO.read(file.getInputStream());
-			Tesseract tesseract = new Tesseract();
-			//tesseract.setDatapath("C:\\Tessearact\\tessdata\\tessdata-owp\\tessdata\\");
+			Tesseract tesseract = new Tesseract();			
 			fileContent = tesseract.doOCR(bufferedImage);
 			fileContent = fileContent.replaceAll("\n", " ");
-			logger.info(" fileContent after OCR:" + fileContent);
-			
+			logger.info(" fileContent after OCR:" + fileContent);			
 
 		} catch (Exception e) {
 			logger.error("Exception while converting/uploading image: ", e);
