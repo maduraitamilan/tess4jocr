@@ -45,16 +45,11 @@ public class OcrTess4jApplication {
 		String fileContent = "";
 		BufferedImage bufferedImage = null;
 
-		try {
-			String ext = FilenameUtils.getExtension(file.getOriginalFilename());
-
-			String fileName = file.getOriginalFilename();
-			// String filePath = env.getProperty("bpm.fileUpload.path");
-			String filePath = "C:\\Tessearact\\owp-uploaded\\";
+		try {		
 
 			bufferedImage = ImageIO.read(file.getInputStream());
 			Tesseract tesseract = new Tesseract();
-			tesseract.setDatapath("C:\\Tessearact\\tessdata\\tessdata-owp\\tessdata\\");
+			//tesseract.setDatapath("C:\\Tessearact\\tessdata\\tessdata-owp\\tessdata\\");
 			fileContent = tesseract.doOCR(bufferedImage);
 			fileContent = fileContent.replaceAll("\n", " ");
 			logger.info(" fileContent after OCR:" + fileContent);
