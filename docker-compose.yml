@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+
+  ocr-rest:
+    build:
+      context: .
+    ports:
+      - "8445:8445"
+    environment:
+      - LC_ALL=C
+      - TESSDATA_PREFIX=/usr/share/tessdata
